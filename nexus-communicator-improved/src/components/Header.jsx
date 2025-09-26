@@ -98,7 +98,7 @@ const Header = ({
         <Button
           variant="ghost"
           size="sm"
-          onClick={onToggleSidebar}
+          onClick={toggleSidebar}
           className="hover:bg-muted/50 transition-colors"
         >
           <Menu className="w-5 h-5" />

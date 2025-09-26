@@ -32,6 +32,8 @@ const AppContent = () => {
     return savedTheme || 'light';
   });
 
+  const toggleSidebar = () => setIsSidebarCollapsed(!isSidebarCollapsed);
+
   useEffect(() => {
     const root = document.documentElement;
     if (theme === 'dark') {
@@ -86,13 +88,12 @@ const AppContent = () => {
           setIsCollapsed={setIsSidebarCollapsed}
         />
         
-        <div className="flex-1 flex flex-col overflow-hidden">
+        <div className={`flex-1 flex flex-col overflow-hidden transition-all duration-300 ${isSidebarCollapsed ? 'pl-16' : 'pl-64'}`}>
           <Header 
             currentPage={currentPage}
             theme={theme}
             toggleTheme={toggleTheme}
-            isSidebarCollapsed={isSidebarCollapsed}
-            setIsSidebarCollapsed={setIsSidebarCollapsed}
+            toggleSidebar={toggleSidebar}
           />
           
           <main className="flex-1 overflow-auto p-6">
